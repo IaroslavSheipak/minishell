@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: suzumaki <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/01 18:34:28 by suzumaki          #+#    #+#             */
+/*   Updated: 2021/06/12 18:37:47 by mclown           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strdup(const char *s)
+{
+	const char	*cps;
+	char		*res;
+	char		*cp_res;
+
+	if (s == NULL)
+		return (NULL);
+	cps = s;
+	res = malloc((ft_strlen(s) + 1) * sizeof(const char));
+	if (!(res))
+		return (NULL);
+	cp_res = res;
+	while (*cps)
+	{
+		ft_memset(cp_res, *cps, 1);
+		cp_res++;
+		cps++;
+	}
+	ft_memset(cp_res, '\0', 1);
+	return (res);
+}
